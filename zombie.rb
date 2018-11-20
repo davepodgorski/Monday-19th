@@ -24,6 +24,7 @@ class Zombie
     elsif survive_attack?
       return "You escaped."
     else return
+      @@horde.push(Zombie.new())
       "You died."
     end
   end
@@ -66,7 +67,8 @@ class Zombie
 
   def self.spawn
     random = rand(@@plague_level+1)
-      random.times do << Zombie.new(rand@@max_speed+1) rand(@@max_strength+1)
+      random.times do |x|
+         @@horde << Zombie.new(rand(@@max_speed+1), rand(@@max_strength+1))
       end
   end
 
@@ -74,14 +76,5 @@ class Zombie
     @@plague_level += rand(3)
   end
 
-  def message
-    if outrun_zombie?
-      puts "You escaped."
-    elsif survive_attack?
-      puts "You escaped."
-    else
-      puts "You died."
-    end
-  end
 
 end
