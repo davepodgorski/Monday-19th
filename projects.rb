@@ -33,6 +33,23 @@ project = {
     }
   ]
 }
+counter = 0
+puts project [steps].each do |step|
+  counter += 1
+  if counter <= 3
+    step[:person] = project[:committee][0]
+  elsif counter >= 4 && counter <= 6
+      step[:person] = project[:committee][1]
+  elsif counter >= 7 && counter <= 9
+      step[:person] = project[:committee][2]
+  end
+
+end
+  puts project
+
+
+
+
 
 
 
@@ -42,13 +59,13 @@ project = {
 #1 update project
 #2 shovel each item in committee into each :steps
 #3 but do this only 3 times.
-
-def tasks(hash)
-num_of_people = hash[:committee].length
-num_of_steps = hash[:steps].length
-num_of_tasks = num_of_people / num_of_steps
-num_of_tasks << tasks 
-
-end
-
-puts tasks
+#
+# def tasks(hash)
+# num_of_people = hash[:committee].length
+# num_of_steps = hash[:steps].length
+# num_of_tasks = num_of_people / num_of_steps
+# num_of_tasks << tasks
+#
+# end
+#
+# puts tasks
